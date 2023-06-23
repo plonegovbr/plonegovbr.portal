@@ -10,6 +10,7 @@ assignees: ''
 
 - [ ] PortalBrasil.edu
 - [ ] PortalBrasil.gov
+- [ ] PortalBrasil.jus
 - [ ] PortalBrasil.leg
 
 **Quais Componentes?**
@@ -18,9 +19,10 @@ Caso saiba, por favor, informe qual o componente que exibe o problema
 
 - [ ] plonegovbr.portal
 - [ ] plonegovbr.portal_base
-- [ ] plonegovbr.portal_leg
 - [ ] plonegovbr.portal_edu
 - [ ] plonegovbr.portal_gov
+- [ ] plonegovbr.portal_jus
+- [ ] plonegovbr.portal_leg
 - [ ] @plonegovbr/portal
 - [ ] @plonegovbr/volto-brasil-tema
 - [ ] portal-brasil

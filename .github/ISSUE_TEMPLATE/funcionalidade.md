@@ -10,6 +10,7 @@ assignees: ''
 
 - [ ] PortalBrasil.edu
 - [ ] PortalBrasil.gov
+- [ ] PortalBrasil.jus
 - [ ] PortalBrasil.leg
 
 **Descreva a funcionalidade**
