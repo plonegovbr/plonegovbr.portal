@@ -1,5 +1,5 @@
 ---
-name: "\U2692 "
+name: ":hammer: Tarefa interna"
 about: Tarefas internas relacionadas ao PortalBrasil
 title: ''
 labels: 'internal'
