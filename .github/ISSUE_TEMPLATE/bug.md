@@ -1,5 +1,5 @@
 ---
-name: Registro de Bug
+name: '\U0001F41B Registro de Bug'
 about: Crie um registro de problema, para melhorarmos o PortalBrasil
 title: ''
 labels: 'Bug'
