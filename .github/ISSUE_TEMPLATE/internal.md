@@ -2,7 +2,7 @@
 name: "\U0001F528 Tarefa interna"
 about: Tarefas internas relacionadas ao PortalBrasil
 title: ''
-labels: 'internal'
+labels: 'Interno'
 assignees: ''
 ---
 

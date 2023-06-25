@@ -2,7 +2,7 @@
 name: "\U0001F680 Funcionalidade"
 about: Sugira uma nova funcionalidade para o Portal Brasil
 title: ''
-labels: 'enhancement'
+labels: 'Funcionalidade'
 assignees: ''
 ---
 

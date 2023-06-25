@@ -2,7 +2,7 @@
 name: Registro de Bug
 about: Crie um registro de problema, para melhorarmos o PortalBrasil
 title: ''
-labels: 'bug'
+labels: 'Bug'
 assignees: ''
 ---
 
