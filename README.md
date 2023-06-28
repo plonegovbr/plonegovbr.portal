@@ -49,8 +49,8 @@ Sucessor tecnológico do [Portal Modelo](https://plone.org.br/projetos/portal-mo
 - GNU make
 
 Nota: 
-- [Node.js 18 está em LTS desde 2022-10-25](https://github.com/nodejs/release#release-schedule) e Node.js 16 está em modo manutenção. Entretanto, por conta de mudanças nas bibliotecas internas de SSL, algumas dependências do Volto foram descontinuadas e precisam  ser atualizadas para continuar funcionando no Node.js 18, principalmente [Webpack 4](https://github.com/webpack/webpack/issues/14532#issuecomment-947525539). Você pode usar o Node.js 18 mas precisará rodar com uma flag especial: `NODE_OPTIONS=--openssl-legacy-provider`.  Volto's pull request suporta [Node.js 18](https://github.com/plone/volto/pull/3699)
-- A instalação do Python está fora do escopo desta documentação. Entretanto, recomendamos usar o gerenciaador de versõs de Python [pyenv](https://github.com/pyenv/pyenv) que permite a instalação de múltiplas versões do Python no seu ambiente de desenvolvimento sem sobrescrever a versão do Python de seu sistema.
+- [Node.js 18 está em LTS desde 2022-10-25](https://github.com/nodejs/release#release-schedule) e Node.js 16 está em modo manutenção. Entretanto, por conta de mudanças nas bibliotecas internas de SSL, algumas dependências do Volto foram descontinuadas e precisam  ser atualizadas para continuar funcionando no Node.js 18, principalmente [Webpack 4](https://github.com/webpack/webpack/issues/14532#issuecomment-947525539). Você pode usar o Node.js 18 mas precisará rodar com uma flag especial: `NODE_OPTIONS=--openssl-legacy-provider`.  Volto's pull request suporta [Node.js 18](https://github.com/plone/volto/pull/3699).
+- A instalação do Python está fora do escopo desta documentação. Entretanto, recomendamos usar o gerenciador de versões de Python [pyenv](https://github.com/pyenv/pyenv) que permite a instalação de múltiplas versões do Python no seu ambiente de desenvolvimento sem sobrescrever a versão do Python de seu sistema.
 
 
 ### Hardware
