@@ -59,7 +59,7 @@ Os requisitos abaixo são apenas uma estimativa mínima para um servidor Plone. 
 - Disco - Mínimo: 512 MB de espaço em disco. Recomendável: 40 GB ou mais de espaço em disco (avalie principalmente a quantidade de arquivos que o site poderá armazenar no futuro)
 
 ### Sistema Operacional
-- Será necessário um Sistema operacional que rode todos os pré-requisitos de software. A maioria dos sistemas operacionais baseados em UNIX, incluindo a maioria das distribuições Linux, macOS ou Windows Subsystem for Linux (WSL) no Windows. Importante: Windows puro não é recomendado pois não suporta GNU make. Se você conseguir rodar Plone no Windows puro sem WSL, encorajamos você a documentar o processo e compartilhar com a comunidade.
+- Será necessário um Sistema operacional que rode todos os pré-requisitos de software. A maioria dos sistemas operacionais baseados em UNIX, incluindo a maioria das distribuições Linux, macOS ou [Windows Subsystem for Linux (WSL)](https://6.docs.plone.org/glossary.html#term-Windows-Subsystem-for-Linux) no Windows. Importante: Windows puro não é recomendado pois não suporta GNU make. Se você conseguir rodar Plone no Windows puro sem WSL, encorajamos você a documentar o processo e compartilhar com a comunidade.
   
 
 ## Instalação
