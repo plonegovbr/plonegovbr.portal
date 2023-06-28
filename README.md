@@ -20,6 +20,12 @@ Sucessor tecnológico do [Portal Modelo](https://plone.org.br/projetos/portal-mo
 * Design padronizado, mas com possibilidade de pequenos ajustes
 
 
+## Teste o PortalBrasil
+
+### PortalBrasil.edu
+
+Sigas as instruções para iniciar um [ambiente com containers](./stacks/edu/README.md).
+
 ## Licença
 
 Esse projeto é licenciado sob a licença GPLv2.

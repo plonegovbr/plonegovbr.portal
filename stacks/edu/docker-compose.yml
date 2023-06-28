@@ -1,0 +1,91 @@
+version: "3"
+services:
+  webserver:
+    image: traefik:v2.10
+
+    ports:
+      - 80:80
+
+    labels:
+      - traefik.enable=true
+      - traefik.constraint-label=public
+
+      # GENERIC MIDDLEWARES
+      # - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+      # - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
+      - traefik.http.middlewares.gzip.compress=true
+      - traefik.http.middlewares.gzip.compress.excludedcontenttypes=image/png, image/jpeg, font/woff2
+
+      # GENERIC ROUTERS
+      # - traefik.http.routers.generic-https-redirect.entrypoints=http
+      # - traefik.http.routers.generic-https-redirect.rule=HostRegexp(`{host:.*}`)
+      # - traefik.http.routers.generic-https-redirect.priority=1
+      # - traefik.http.routers.generic-https-redirect.middlewares=https-redirect
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+    command:
+      - --providers.docker
+      - --providers.docker.constraints=Label(`traefik.constraint-label`, `public`)
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.http.address=:80
+      # - --entrypoints.https.address=:443
+      - --accesslog
+      - --accesslog.format=json
+      - --accesslog.fields.headers.names.X-Varnish-Routed=keep
+      - --accesslog.fields.headers.names.RequestHost=keep
+      - --log
+      - --log.level=DEBUG
+      - --api
+
+  frontend:
+    image: ghcr.io/plonegovbr/portal:latest
+    environment:
+      RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
+      RAZZLE_API_PATH: http://universidade.localhost
+    labels:
+      - traefik.enable=true
+      - traefik.constraint-label=public
+      # Service
+      - traefik.http.services.svc-frontend.loadbalancer.server.port=3000
+      # Router: Varnish Public
+      - traefik.http.routers.rt-frontend-public.rule=Host(`universidade.localhost`)
+      - traefik.http.routers.rt-frontend-public.entrypoints=http
+      - traefik.http.routers.rt-frontend-public.service=svc-frontend
+      - traefik.http.routers.rt-frontend-public.middlewares=gzip
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+  backend:
+    image: ghcr.io/plonegovbr/portal_edu:latest
+    environment:
+      DEVELOP_DISTRIBUTIONS: "portal_edu"
+    labels:
+      - traefik.enable=true
+      - traefik.constraint-label=public
+      # Service
+      - traefik.http.services.svc-backend.loadbalancer.server.port=8080
+      # Middleware
+      ## Virtual Host Monster for /++api++/
+      - "traefik.http.middlewares.mw-backend-vhm-api.replacepathregex.regex=^/\\+\\+api\\+\\+($$|/.*)"
+      - "traefik.http.middlewares.mw-backend-vhm-api.replacepathregex.replacement=/VirtualHostBase/http/universidade.localhost/Plone/++api++/VirtualHostRoot$$1"
+      ## Virtual Host Monster for /ClassicUI/
+      - "traefik.http.middlewares.mw-backend-vhm-ui.replacepathregex.regex=^/ClassicUI($$|/.*)"
+      - "traefik.http.middlewares.mw-backend-vhm-ui.replacepathregex.replacement=/VirtualHostBase/http/universidade.localhost/Plone/VirtualHostRoot/_vh_ClassicUI$$1"
+      # Router: Internal
+      ## /++api++/
+      - traefik.http.routers.rt-backend-api-internal.rule=Host(`universidade.localhost`) && PathPrefix(`/++api++`)
+      - traefik.http.routers.rt-backend-api-internal.entrypoints=http
+      - traefik.http.routers.rt-backend-api-internal.service=svc-backend
+      - traefik.http.routers.rt-backend-api-internal.middlewares=gzip,mw-backend-vhm-api
+      ## /ClassicUI/
+      - traefik.http.routers.rt-backend-ui-internal.rule=Host(`universidade.localhost`) && PathPrefix(`/ClassicUI`)
+      - traefik.http.routers.rt-backend-ui-internal.entrypoints=http
+      - traefik.http.routers.rt-backend-ui-internal.service=svc-backend
+      - traefik.http.routers.rt-backend-ui-internal.middlewares=gzip,mw-backend-vhm-ui
+
+    ports:
+      - "8080:8080"
