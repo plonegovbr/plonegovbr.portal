@@ -18,6 +18,7 @@
 - [Inicialização](#inicialização)
 - [Estrutura](#estrutura)
 - [Licença](#licença)
+- [Teste o Portal Brasil](#teste-o-portalbrasil)
 
 ## Introdução
 
@@ -158,6 +159,4 @@ Esse projeto é licenciado sob a licença GPLv2.
 
 Sigas as instruções para iniciar um [ambiente com containers](./stacks/edu/README.md).
 
-## Licença
 
-Esse projeto é licenciado sob a licença GPLv2.
