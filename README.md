@@ -41,6 +41,7 @@ Sucessor tecnológico do [Portal Modelo](https://plone.org.br/projetos/portal-mo
 ## Pré-Requisitos
 ### Software
 - Python 3.9, 3.10, 3.11
+- nvm
 - Node 16 (ver nota abaixo)
 - Yarn 3
 - Yeoman
@@ -112,6 +113,9 @@ npm install -g yo
 
 ### Make
 O make vem instalado na maioria das distribuições Linux. No macOS, você precisa primeiro [instalar o Xcode](https://developer.apple.com/xcode/resources/) então instale as ferramentas de linha de comando. No Windows, é recomendado [instalar o Linuxcom WSL](https://learn.microsoft.com/en-us/windows/wsl/install) que inclui o make. Também é recomendado atualizar sua versão do make porque algumas distribuições, especialmente macOS possuem versões desatualizadas. Use seu motor de busca preferido para encontrar como atualizar o make.
+
+### Docker
+Instale o [Docker Desktop](https://docs.docker.com/get-docker/) para seu sistema operacional. Docker Desktop inclui todas as ferramentas Docker
 
 
 ### Clonando o portal no git
