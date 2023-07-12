@@ -2,13 +2,12 @@ name: Cria uma nova imagem de backend
 
 on:
   workflow_call:
-    inputs:
+    secrets:
       registry-username:
         required: true
-        type: string
       registry-password:
         required: true
-        type: string
+    inputs:
       image-name:
         required: true
         type: string
@@ -71,8 +70,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ inputs.registry-username }}
-          password: ${{ inputs.registry-password }}
+          username: ${{ secrets.registry-username }}
+          password: ${{ secrets.registry-password }}
 
       - name: "Usa o mxdev para baixar dependências"
         run: |
